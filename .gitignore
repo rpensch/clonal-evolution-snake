@@ -1,0 +1,8 @@
+.snakemake
+.snakemake-workflow-catalog.yml
+results
+workflow/envs/snakemake
+workflow/envs/clonevol
+workflow/envs/pyclone-vi
+workflow/envs/R_packages
+logs

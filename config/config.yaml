@@ -1,0 +1,7 @@
+input_files: "config/test.input.tsv"
+pyclone_c: 40
+pyclone_d: "beta-binomial"
+pyclone_g: "100"
+pyclone_r: "10"
+min_cluster_size: 10
+clonevol_model: "polyclonal"

@@ -1,0 +1,5 @@
+name: /domus/h1/rapha/clonal-evolution/workflow/envs/filter_pyclone-vi
+dependencies:
+  - pandas
+  - argparse
+prefix: /domus/h1/rapha/clonal-evolution/workflow/envs/filter_pyclone-vi

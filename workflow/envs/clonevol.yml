@@ -1,0 +1,27 @@
+name: /domus/h1/rapha/clonal-evolution/workflow/envs/clonevol
+channels:
+  - file:///sw/apps/conda/latest/rackham/local_repo/conda-forge
+  - file:///sw/apps/conda/latest/rackham/local_repo/scilifelab-lts
+  - file:///sw/apps/conda/latest/rackham/local_repo/r
+  - file:///sw/apps/conda/latest/rackham/local_repo/main
+  - file:///sw/apps/conda/latest/rackham/local_repo/bioconda
+  - file:///sw/apps/conda/latest/rackham/local_repo/free
+  - file:///sw/apps/conda/latest/rackham/local_repo/pro
+  - file:///sw/apps/conda/latest/rackham/local_repo/qiime2
+  - file:///sw/apps/conda/latest/rackham/local_repo/biocore
+  - file:///sw/apps/conda/latest/rackham/local_repo/dranew
+  - file:///sw/apps/conda/latest/rackham/local_repo/r2018.11
+  - file:///sw/apps/conda/latest/rackham/local_repo/nvidia
+  - file:///sw/apps/conda/latest/rackham/local_repo/pytorch
+  - file:///sw/apps/conda/latest/rackham/local_repo/anaconda
+  - defaults
+dependencies:
+  - r=4.3.1
+  - r-rlang
+  - r-gridbase
+  - r-gridextra
+  - r-ggplot2
+  - r-igraph
+  - r-packcircles
+  - r-devtools
+prefix: /domus/h1/rapha/clonal-evolution/workflow/envs/clonevol
