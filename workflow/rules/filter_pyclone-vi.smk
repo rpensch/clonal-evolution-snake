@@ -20,10 +20,3 @@ rule filter_pyclone:
         --out {output}\
         >> {log.stdout} 2> {log.stderr}
         """
-        
-        python3 workflow/scripts/filter_pyclone-vi.py\
-        --input results/pyclone-vi_tsv/T-3001.pyclone-vi.lala.tsv \
-        --min_cluster_size 100 \
-        --min_founder_size 0.1 \
-        --out testo.tsv \
-        >> testo.out 2> testo.err
