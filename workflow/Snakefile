@@ -17,7 +17,8 @@ include: "rules/clonevol.smk"
 
 rule collect: 
     input: 
-        expand("results/clonevol/{sample}.pyclone-vi.filt.clonevol.rda", sample = samples)
+        expand("results/clonevol/{sample}.pyclone-vi.filt.monoclonal.clonevol.rda", sample = samples), 
+        expand("results/clonevol/{sample}.pyclone-vi.filt.polyclonal.clonevol.rda", sample = samples)
     output: "results/all.tsv"
     shell: "ls {input} > {output}"
 

@@ -56,7 +56,7 @@ names(sample.groups) <- vaf.col.names
 merged <- merged[order(merged$cluster),]
 
 # Plot CCF
-pdf(args[3], width = 5, height = 3, useDingbats = FALSE, title='')
+pdf(args[2], width = 5, height = 3, useDingbats = FALSE, title='')
 pp <- plot.variant.clusters(merged,
                             cluster.col.name = 'cluster',
                             show.cluster.size = FALSE,
@@ -85,12 +85,12 @@ pp <- plot.variant.clusters(merged,
                             base_size = 12)
 dev.off()
 
-# Run clonevol
-y = infer.clonal.models(variants = merged,
+# Run clonevol with monoclonal initiation model
+mono = infer.clonal.models(variants = merged,
                         cluster.col.name = 'cluster',
                         sample.groups = sample.groups,
                         ccf.col.names = vaf.col.names,
-                        cancer.initiation.model=args[2],
+                        cancer.initiation.model='monoclonal',
                         subclonal.test = 'bootstrap',
                         subclonal.test.model = 'non-parametric',
                         num.boots = 1000,
@@ -105,11 +105,11 @@ y = infer.clonal.models(variants = merged,
                         alpha = 0.01, 
                         vaf.in.percent= TRUE)
 
-y <- convert.consensus.tree.clone.to.branch(y, branch.scale = 'sqrt')
+mono <- convert.consensus.tree.clone.to.branch(mono, branch.scale = 'sqrt')
 
-save(y, file = args[4])
+save(mono, file = args[3])
 
-plot.clonal.models(y,
+plot.clonal.models(mono,
                    # box plot parameters
                    box.plot = FALSE,
                    # bell plot parameters
@@ -135,7 +135,7 @@ plot.clonal.models(y,
                    cell.frac.ci = FALSE,
                    disable.cell.frac = FALSE,
                    # output figure parameters
-                   out.dir = paste('results/clonevol/plots/',prefix,sep=''),
+                   out.dir = paste('results/clonevol/plots/',prefix,'_monoclonal',sep=''),
                    out.format = 'pdf',
                    overwrite.output = TRUE,
                    width = 5,
@@ -145,3 +145,62 @@ plot.clonal.models(y,
                    max.num.models.to.plot = 10)
 
 #}
+
+# Run clonevol with polyclonal initiation model
+poly = infer.clonal.models(variants = merged,
+                        cluster.col.name = 'cluster',
+                        sample.groups = sample.groups,
+                        ccf.col.names = vaf.col.names,
+                        cancer.initiation.model='polyclonal',
+                        subclonal.test = 'bootstrap',
+                        subclonal.test.model = 'non-parametric',
+                        num.boots = 1000,
+                        founding.cluster = 1,
+                        cluster.center = 'mean',
+                        ignore.clusters = NULL,
+                        clone.colors = NULL,
+                        min.cluster.vaf = 0.01,
+                        # min probability that CCF(clone) is non-negative
+                        sum.p = 0.01,
+                        # alpha level in confidence interval estimate for CCF(clone)
+                        alpha = 0.01, 
+                        vaf.in.percent= TRUE)
+
+poly <- convert.consensus.tree.clone.to.branch(poly, branch.scale = 'sqrt')
+
+save(poly, file = args[4])
+
+plot.clonal.models(poly,
+                   # box plot parameters
+                   box.plot = FALSE,
+                   # bell plot parameters
+                   clone.shape = 'bell',
+                   bell.event = TRUE,
+                   bell.event.label.color = 'blue',
+                   bell.event.label.angle = 60,
+                   clone.time.step.scale = 1,
+                   bell.curve.step = 2,
+                   # node-based consensus tree parameters
+                   merged.tree.plot = FALSE,
+                   # branch-based consensus tree parameters
+                   merged.tree.clone.as.branch = TRUE,
+                   mtcab.event.sep.char = ',',
+                   mtcab.branch.text.size = 1,
+                   mtcab.branch.width = 1,
+                   mtcab.node.size = 3,
+                   mtcab.node.label.size = 1,
+                   mtcab.node.text.size = 1,
+                   #meta-parameters
+                   scale.monoclonal.cell.frac = TRUE,
+                   show.score = FALSE,
+                   cell.frac.ci = FALSE,
+                   disable.cell.frac = FALSE,
+                   # output figure parameters
+                   out.dir = paste('results/clonevol/plots/',prefix,'_polyclonal', sep=''),
+                   out.format = 'pdf',
+                   overwrite.output = TRUE,
+                   width = 5,
+                   height = 4,
+                   # vector of width scales for each panel from left to right
+                   panel.widths = c(3,1),
+                   max.num.models.to.plot = 10)
