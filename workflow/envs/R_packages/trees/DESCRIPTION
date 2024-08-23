@@ -1,0 +1,38 @@
+Package: trees
+Type: Package
+Title: Plot Trees
+Version: 0.1.3.9000.1
+Authors@R: as.person(c(
+    "John Baumgartner <johnbaums@gmail.com> [aut, cre]", 
+    "Brodie Gaslam <brodie.gaslam@yahoo.com> [ctb]",
+    "Ha X. Dang <haxdang@gmail.com> [ctb]"
+  ))
+Description: Generate and manipulate tree plots. Predefined tree structures can
+    be plotted, or random structures can be generated. Trees can be pruned to
+    remove one or more tiers of outer branches, and symbols can be plotted at
+    specified or randomly chosen coordinates along branches. Trees can be
+    plotted to represent hierarchical structures (e.g. dendrograms), or can
+    mimic trees (the things with trunks, branches and leaves) in nature.
+    This package is adopt by Ha Dang to use in tree plotting of ClonEvol package
+Depends: R (>= 2.15.0)
+License: GPL-3
+URL: https://github.com/hdng/trees
+BugReports: https://github.com/hdng/trees/issues
+RoxygenNote: 5.0.1
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: trees
+RemoteUsername: hdng
+RemoteRef: HEAD
+RemoteSha: 2dd14481c949cd41b8b4fcdb378a3e161aa4c25c
+GithubRepo: trees
+GithubUsername: hdng
+GithubRef: HEAD
+GithubSHA1: 2dd14481c949cd41b8b4fcdb378a3e161aa4c25c
+NeedsCompilation: no
+Packaged: 2024-07-24 13:52:59 UTC; rapha
+Author: John Baumgartner [aut, cre],
+  Brodie Gaslam [ctb],
+  Ha X. Dang [ctb]
+Maintainer: John Baumgartner <johnbaums@gmail.com>
+Built: R 4.3.1; ; 2024-07-24 13:53:00 UTC; unix

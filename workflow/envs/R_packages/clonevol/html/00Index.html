@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Clonal ordering and visualization</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Clonal ordering and visualization
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;clonevol&rsquo; version 0.99.11</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="adjust.clone.vaf.html">adjust.clone.vaf</a></td>
+<td>Adjust clone VAF according to significant different test result If two clones have close VAF, adjust the smaller VAF to the bigger TODO: this test does not work yet, has to think more carefully about what test to use, as well as test involving multiple samples</td></tr>
+<tr><td style="width: 25%;"><a href="assign.events.to.clones.html">assign.events.to.clones</a></td>
+<td>Wrapper to assign events to clones in all merged trees This function calls assign.events.to.clones.of.a.tree on each merged tree in list x$matched$merged.trees</td></tr>
+<tr><td style="width: 25%;"><a href="assign.events.to.clones.of.a.tree.html">assign.events.to.clones.of.a.tree</a></td>
+<td>Assign events to clones based on presence/absence of them across samples</td></tr>
+<tr><td style="width: 25%;"><a href="boot.vaf.ci.html">boot.vaf.ci</a></td>
+<td>Calculate CI for a cluster in a sample</td></tr>
+<tr><td style="width: 25%;"><a href="clone.vaf.diff.html">clone.vaf.diff</a></td>
+<td>Test if two clones have different VAFs Deprecated!</td></tr>
+<tr><td style="width: 25%;"><a href="compare.clone.trees.html">compare.clone.trees</a></td>
+<td>Compare two clonal evolution trees</td></tr>
+<tr><td style="width: 25%;"><a href="compare.clone.trees.removing.leaves.html">compare.clone.trees.removing.leaves</a></td>
+<td>Compare two merged clonal evolution trees</td></tr>
+<tr><td style="width: 25%;"><a href="convert.clone.to.branch.html">convert.clone.to.branch</a></td>
+<td>Create a tree from the merged.tree data.frame in clonevol output</td></tr>
+<tr><td style="width: 25%;"><a href="convert.consensus.tree.clone.to.branch.html">convert.consensus.tree.clone.to.branch</a></td>
+<td>Create trees for all merged.trees in clonevol output</td></tr>
+<tr><td style="width: 25%;"><a href="createFishPlotObjects.html">createFishPlotObjects</a></td>
+<td>Create a list of fishplot objects that can then be called</td></tr>
+<tr><td style="width: 25%;"><a href="cross.rule.score.html">cross.rule.score</a></td>
+<td>Apply cross rule to all clones in all matched models using p-value combination</td></tr>
+<tr><td style="width: 25%;"><a href="cutBigValue.html">cutBigValue</a></td>
+<td>Replace values bigger than a cutoff by a value</td></tr>
+<tr><td style="width: 25%;"><a href="determine.subclone.html">determine.subclone</a></td>
+<td>Determine which clones are subclone in a single sample, also determine what clones are possible founder clones of the samples</td></tr>
+<tr><td style="width: 25%;"><a href="draw.branch.html">draw.branch</a></td>
+<td>Draw tree branch using polygon that allows for choosing border style and fill</td></tr>
+<tr><td style="width: 25%;"><a href="draw.clone.html">draw.clone</a></td>
+<td>Draw a bell/polygon representing a clone evolution, annotated with cluster label and cellular fraction</td></tr>
+<tr><td style="width: 25%;"><a href="draw.sample.clones.html">draw.sample.clones</a></td>
+<td>Draw clonal structures/evolution of a single sample</td></tr>
+<tr><td style="width: 25%;"><a href="draw.sample.clones.all.html">draw.sample.clones.all</a></td>
+<td>Draw all enumerated clonal models for a single sample</td></tr>
+<tr><td style="width: 25%;"><a href="enumerate.clones.html">enumerate.clones</a></td>
+<td>Enumerate all possible clonal structures for a single sample, employing the subclonal test</td></tr>
+<tr><td style="width: 25%;"><a href="estimate.ccf.html">estimate.ccf</a></td>
+<td>Calculate CI of CCF, pvals, etc.</td></tr>
+<tr><td style="width: 25%;"><a href="estimate.clone.vaf.html">estimate.clone.vaf</a></td>
+<td>Estimate VAFs of clones/clusters from clonality analysis result</td></tr>
+<tr><td style="width: 25%;"><a href="extract.mapped.events.html">extract.mapped.events</a></td>
+<td>Produce a data frame of events mapped to clone and associated genes</td></tr>
+<tr><td style="width: 25%;"><a href="find.matched.models.html">find.matched.models</a></td>
+<td>Find matched models between samples infer clonal evolution models, given all evolve from the 1st sample</td></tr>
+<tr><td style="width: 25%;"><a href="generate.boot.html">generate.boot</a></td>
+<td>Generate and calculate bootstrap means for all clusters</td></tr>
+<tr><td style="width: 25%;"><a href="generate.boot.nonparametric.html">generate.boot.nonparametric</a></td>
+<td>Generate and calculate bootstrap means for all clusters Depricated!</td></tr>
+<tr><td style="width: 25%;"><a href="generate.cloud.of.cells.html">generate.cloud.of.cells</a></td>
+<td>Generate a cloud of circles to represent cell population</td></tr>
+<tr><td style="width: 25%;"><a href="generate.fill.points.html">generate.fill.points</a></td>
+<td>Generate fill points for bell/polygon plots</td></tr>
+<tr><td style="width: 25%;"><a href="generateFishplotInputs.html">generateFishplotInputs</a></td>
+<td>Generate fishplot ready data from clonevol clonal evolution models</td></tr>
+<tr><td style="width: 25%;"><a href="germinate.html">germinate</a></td>
+<td>Germinate a seed.</td></tr>
+<tr><td style="width: 25%;"><a href="get.cell.frac.ci.html">get.cell.frac.ci</a></td>
+<td>Get cellular fraction confidence interval</td></tr>
+<tr><td style="width: 25%;"><a href="get.clonevol.colors.html">get.clonevol.colors</a></td>
+<td>Get the hex string of the preset colors optimized for plotting both polygon plots and mutation scatter plots, etc. #b3b3b3', #999999', #bf812d', #aaaa55', #c51b7d', #ef6548', #33a02c', '#3f007d', '#1f78b4', #ffcc00', #fca27e', '#fb8072',</td></tr>
+<tr><td style="width: 25%;"><a href="get.model.max.p.value.html">get.model.max.p.value</a></td>
+<td>Get the highest p.value of the test of Ho:ccf&lt;0 This is the 2nd strategy to score a model</td></tr>
+<tr><td style="width: 25%;"><a href="get.model.non.negative.ccf.prob.html">get.model.non.negative.ccf.prob</a></td>
+<td>Get probability of a model for a sample as the product of individual prob that ccf of a clone is non-negative This is a the 1st strategy to score a model</td></tr>
+<tr><td style="width: 25%;"><a href="get.subclones.across.samples.html">get.subclones.across.samples</a></td>
+<td>Get all set of subclones for all clone across samples together with p value</td></tr>
+<tr><td style="width: 25%;"><a href="import.tree.html">import.tree</a></td>
+<td>Import trees to clonevol</td></tr>
+<tr><td style="width: 25%;"><a href="infer.clonal.models.html">infer.clonal.models</a></td>
+<td>Infer clonal structures and evolution models for multiple samples</td></tr>
+<tr><td style="width: 25%;"><a href="insert.lf.html">insert.lf</a></td>
+<td>Insert line feed</td></tr>
+<tr><td style="width: 25%;"><a href="is.ancestor.html">is.ancestor</a></td>
+<td>Check if clone a is ancestor of clone b in the clonal evolution tree</td></tr>
+<tr><td style="width: 25%;"><a href="make.clonal.data.frame.html">make.clonal.data.frame</a></td>
+<td>Create a data frame to hold clonal structure of a single sample</td></tr>
+<tr><td style="width: 25%;"><a href="make.graph.html">make.graph</a></td>
+<td>Construct igraph object from clonal structures of a sample</td></tr>
+<tr><td style="width: 25%;"><a href="match.sample.clones.html">match.sample.clones</a></td>
+<td>Check if two clonal structures are compatible (one evolves to the other)</td></tr>
+<tr><td style="width: 25%;"><a href="merge.all.matched.clone.trees.html">merge.all.matched.clone.trees</a></td>
+<td>Recreate merged trees for matched models, given output of infer.clonal.models</td></tr>
+<tr><td style="width: 25%;"><a href="merge.clone.trees.html">merge.clone.trees</a></td>
+<td>Merge clonnal evolution trees from multiple samples into a single tree</td></tr>
+<tr><td style="width: 25%;"><a href="merge.samples.html">merge.samples</a></td>
+<td>Merge multi region samples into a meta sample</td></tr>
+<tr><td style="width: 25%;"><a href="merge.variants.and.events.html">merge.variants.and.events</a></td>
+<td>Merge variants and mapped events onto the same data frame that is more convenient for plotting fancy boxplot of variants with driver events highlighted</td></tr>
+<tr><td style="width: 25%;"><a href="plot.all.trees.clone.as.branch.html">plot.all.trees.clone.as.branch</a></td>
+<td>Plot all branch-based consensus clonal evolution trees</td></tr>
+<tr><td style="width: 25%;"><a href="plot.cell.population.html">plot.cell.population</a></td>
+<td>Plot a tumor as a cloud of cells reflecting the cellular frequencies</td></tr>
+<tr><td style="width: 25%;"><a href="plot.clonal.models.html">plot.clonal.models</a></td>
+<td>Visualize clonal evolution models using various plots.</td></tr>
+<tr><td style="width: 25%;"><a href="plot.clonevol.colors.html">plot.clonevol.colors</a></td>
+<td>Plot ClonEvol colors</td></tr>
+<tr><td style="width: 25%;"><a href="plot.cloud.of.cells.html">plot.cloud.of.cells</a></td>
+<td>Plot a cloud of cells</td></tr>
+<tr><td style="width: 25%;"><a href="plot.cluster.flow.html">plot.cluster.flow</a></td>
+<td>Plot the mean/median of the clusters of variants across samples</td></tr>
+<tr><td style="width: 25%;"><a href="plot.pairwise.html">plot.pairwise</a></td>
+<td>Plot values of columns pairwise</td></tr>
+<tr><td style="width: 25%;"><a href="plot.plant.html">plot.plant</a></td>
+<td>Plot method for plant objects.</td></tr>
+<tr><td style="width: 25%;"><a href="plot.tree.html">plot.tree</a></td>
+<td>Plot clonal evolution tree</td></tr>
+<tr><td style="width: 25%;"><a href="plot.tree.clone.as.branch.html">plot.tree.clone.as.branch</a></td>
+<td>Plot a consensus tree using branch-based visualization</td></tr>
+<tr><td style="width: 25%;"><a href="plot.variant.clusters.html">plot.variant.clusters</a></td>
+<td>Plot variant clustering using combination of box, violin, and jitter plots</td></tr>
+<tr><td style="width: 25%;"><a href="replaceNA.html">replaceNA</a></td>
+<td>Replace NA with some value</td></tr>
+<tr><td style="width: 25%;"><a href="rescale.vaf.html">rescale.vaf</a></td>
+<td>Rescale VAF of subclones for visualzation purpose</td></tr>
+<tr><td style="width: 25%;"><a href="save.clonevol.results.html">save.clonevol.results</a></td>
+<td>Save clonevol output to file</td></tr>
+<tr><td style="width: 25%;"><a href="scale.cell.frac.html">scale.cell.frac</a></td>
+<td>Scale cellular fraction in a clonal architecture model</td></tr>
+<tr><td style="width: 25%;"><a href="scale.sample.position.html">scale.sample.position</a></td>
+<td>Prepare x positions to layout samples in bell plots</td></tr>
+<tr><td style="width: 25%;"><a href="set.position.html">set.position</a></td>
+<td>Set vertical position of clones within a sample clonal polygon visualization</td></tr>
+<tr><td style="width: 25%;"><a href="subclonal.test.html">subclonal.test</a></td>
+<td>Subclonal test of H0:</td></tr>
+<tr><td style="width: 25%;"><a href="transfer.events.to.consensus.trees.html">transfer.events.to.consensus.trees</a></td>
+<td>Transfer driver variants/events from the cluster onto the clonal evolution trees, so the trees can be plot with events on branch</td></tr>
+<tr><td style="width: 25%;"><a href="trim.clone.trees.html">trim.clone.trees</a></td>
+<td>Reduce clone trees to core trees after excluding clones that are present in only a single sample</td></tr>
+<tr><td style="width: 25%;"><a href="write.tree.html">write.tree</a></td>
+<td>Write clonal evolution tree to file TODO: do!</td></tr>
+</table>
+</div></body></html>

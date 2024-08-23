@@ -1,0 +1,37 @@
+Package: clonevol
+Title: Clonal ordering and visualization
+Version: 0.99.11
+Authors@R: person(given="Ha X.", family="Dang",
+                  email = "haxdang@gmail.com",
+                  role = c("aut", "cre"))
+Description: clonevol performs clonal ordering and visualization using
+    the variant clustering results. It uses a bootstrap resampling
+    technique to estimate the cellular prevalence of the clones within
+    samples and probabilistically model clonal ordering constraints
+    (sum and cross rules), hence it tolerates error and variability
+    in cellular prevalence estimates of individual variants.
+Depends: R (>= 2.1.5)
+Imports: stats, graphics, grDevices, utils, methods, base, ggplot2
+License: GPL-3 | file LICENSE
+LazyData: true
+Suggests: knitr, rmarkdown, grid, gridBase, gridExtra, reshape2,
+        igraph, packcircles, metap, truncnorm
+VignetteBuilder: knitr
+biocViews: Software, StatisticalMethod, DNASeq, WholeGenome, ExomeSeq,
+        Visualization, Genetics, SomaticMutation
+RoxygenNote: 6.0.1
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: clonevol
+RemoteUsername: hdng
+RemoteRef: HEAD
+RemoteSha: 7aff737aedde157de4e7374cedf9a873e80c8046
+GithubRepo: clonevol
+GithubUsername: hdng
+GithubRef: HEAD
+GithubSHA1: 7aff737aedde157de4e7374cedf9a873e80c8046
+NeedsCompilation: no
+Packaged: 2024-07-24 13:51:54 UTC; rapha
+Author: Ha X. Dang [aut, cre]
+Maintainer: Ha X. Dang <haxdang@gmail.com>
+Built: R 4.3.1; ; 2024-07-24 13:51:56 UTC; unix

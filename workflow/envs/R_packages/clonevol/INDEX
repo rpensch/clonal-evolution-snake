@@ -1,0 +1,146 @@
+adjust.clone.vaf        Adjust clone VAF according to significant
+                        different test result If two clones have close
+                        VAF, adjust the smaller VAF to the bigger TODO:
+                        this test does not work yet, has to think more
+                        carefully about what test to use, as well as
+                        test involving multiple samples
+assign.events.to.clones
+                        Wrapper to assign events to clones in all
+                        merged trees This function calls
+                        assign.events.to.clones.of.a.tree on each
+                        merged tree in list x$matched$merged.trees
+assign.events.to.clones.of.a.tree
+                        Assign events to clones based on
+                        presence/absence of them across samples
+boot.vaf.ci             Calculate CI for a cluster in a sample
+clone.vaf.diff          Test if two clones have different VAFs
+                        Deprecated!
+compare.clone.trees     Compare two clonal evolution trees
+compare.clone.trees.removing.leaves
+                        Compare two merged clonal evolution trees
+convert.clone.to.branch
+                        Create a tree from the merged.tree data.frame
+                        in clonevol output
+convert.consensus.tree.clone.to.branch
+                        Create trees for all merged.trees in clonevol
+                        output
+createFishPlotObjects   Create a list of fishplot objects that can then
+                        be called
+cross.rule.score        Apply cross rule to all clones in all matched
+                        models using p-value combination
+cutBigValue             Replace values bigger than a cutoff by a value
+determine.subclone      Determine which clones are subclone in a single
+                        sample, also determine what clones are possible
+                        founder clones of the samples
+draw.branch             Draw tree branch using polygon that allows for
+                        choosing border style and fill
+draw.clone              Draw a bell/polygon representing a clone
+                        evolution, annotated with cluster label and
+                        cellular fraction
+draw.sample.clones      Draw clonal structures/evolution of a single
+                        sample
+draw.sample.clones.all
+                        Draw all enumerated clonal models for a single
+                        sample
+enumerate.clones        Enumerate all possible clonal structures for a
+                        single sample, employing the subclonal test
+estimate.ccf            Calculate CI of CCF, pvals, etc.
+estimate.clone.vaf      Estimate VAFs of clones/clusters from clonality
+                        analysis result
+extract.mapped.events   Produce a data frame of events mapped to clone
+                        and associated genes
+find.matched.models     Find matched models between samples infer
+                        clonal evolution models, given all evolve from
+                        the 1st sample
+generate.boot           Generate and calculate bootstrap means for all
+                        clusters
+generate.boot.nonparametric
+                        Generate and calculate bootstrap means for all
+                        clusters Depricated!
+generate.cloud.of.cells
+                        Generate a cloud of circles to represent cell
+                        population
+generate.fill.points    Generate fill points for bell/polygon plots
+generateFishplotInputs
+                        Generate fishplot ready data from clonevol
+                        clonal evolution models
+germinate               Germinate a seed.
+get.cell.frac.ci        Get cellular fraction confidence interval
+get.clonevol.colors     Get the hex string of the preset colors
+                        optimized for plotting both polygon plots and
+                        mutation scatter plots, etc. #b3b3b3',
+                        #999999', #bf812d', #aaaa55', #c51b7d',
+                        #ef6548', #33a02c', '#3f007d', '#1f78b4',
+                        #ffcc00', #fca27e', '#fb8072',
+get.model.max.p.value   Get the highest p.value of the test of Ho:ccf<0
+                        This is the 2nd strategy to score a model
+get.model.non.negative.ccf.prob
+                        Get probability of a model for a sample as the
+                        product of individual prob that ccf of a clone
+                        is non-negative This is a the 1st strategy to
+                        score a model
+get.subclones.across.samples
+                        Get all set of subclones for all clone across
+                        samples together with p value
+import.tree             Import trees to clonevol
+infer.clonal.models     Infer clonal structures and evolution models
+                        for multiple samples
+insert.lf               Insert line feed
+is.ancestor             Check if clone a is ancestor of clone b in the
+                        clonal evolution tree
+make.clonal.data.frame
+                        Create a data frame to hold clonal structure of
+                        a single sample
+make.graph              Construct igraph object from clonal structures
+                        of a sample
+match.sample.clones     Check if two clonal structures are compatible
+                        (one evolves to the other)
+merge.all.matched.clone.trees
+                        Recreate merged trees for matched models, given
+                        output of infer.clonal.models
+merge.clone.trees       Merge clonnal evolution trees from multiple
+                        samples into a single tree
+merge.samples           Merge multi region samples into a meta sample
+merge.variants.and.events
+                        Merge variants and mapped events onto the same
+                        data frame that is more convenient for plotting
+                        fancy boxplot of variants with driver events
+                        highlighted
+plot.all.trees.clone.as.branch
+                        Plot all branch-based consensus clonal
+                        evolution trees
+plot.cell.population    Plot a tumor as a cloud of cells reflecting the
+                        cellular frequencies
+plot.clonal.models      Visualize clonal evolution models using various
+                        plots.
+plot.clonevol.colors    Plot ClonEvol colors
+plot.cloud.of.cells     Plot a cloud of cells
+plot.cluster.flow       Plot the mean/median of the clusters of
+                        variants across samples
+plot.pairwise           Plot values of columns pairwise
+plot.plant              Plot method for plant objects.
+plot.tree               Plot clonal evolution tree
+plot.tree.clone.as.branch
+                        Plot a consensus tree using branch-based
+                        visualization
+plot.variant.clusters   Plot variant clustering using combination of
+                        box, violin, and jitter plots
+replaceNA               Replace NA with some value
+rescale.vaf             Rescale VAF of subclones for visualzation
+                        purpose
+save.clonevol.results   Save clonevol output to file
+scale.cell.frac         Scale cellular fraction in a clonal
+                        architecture model
+scale.sample.position   Prepare x positions to layout samples in bell
+                        plots
+set.position            Set vertical position of clones within a sample
+                        clonal polygon visualization
+subclonal.test          Subclonal test of H0:
+transfer.events.to.consensus.trees
+                        Transfer driver variants/events from the
+                        cluster onto the clonal evolution trees, so the
+                        trees can be plot with events on branch
+trim.clone.trees        Reduce clone trees to core trees after
+                        excluding clones that are present in only a
+                        single sample
+write.tree              Write clonal evolution tree to file TODO: do!
