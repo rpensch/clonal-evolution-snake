@@ -1,5 +1,6 @@
 import pandas as pd
 import argparse
+from filter_fun import count_mutations_per_cluster, adjust_ccf, find_founders
 
 # Parse command line arguments
 parser = argparse.ArgumentParser()
@@ -14,11 +15,7 @@ args = parser.parse_args()
 results = pd.read_csv(args.input, sep = '\t')
 
 # Count mutations per cluster
-muts_per_cluster = (results
-                        .drop_duplicates('mutation_id')
-                        .groupby('cluster_id', as_index = False)
-                        .agg({'mutation_id':'count'})
-                        .rename(columns = {'mutation_id':'mut_count'}))
+muts_per_cluster = count_mutations_per_cluster(results)
 
 # Exclude clusters with less than min number of mutations
 exclude = muts_per_cluster[muts_per_cluster['mut_count']<args.min_cluster_size]['cluster_id'].tolist()
@@ -32,23 +29,25 @@ results_filt = (results[~results['cluster_id'].isin(exclude)]).copy()
 n_mutations = results.drop_duplicates('mutation_id').shape[0] # from total unfiltered
 min_mutations_founder = n_mutations * args.min_founder_size
 
-# Rank clusters by cellular prevalence to determine the ranking of potential founding clones
-founder_ranking = (results_filt
-                    .sort_values('cellular_prevalence', ascending = False)
-                    .drop_duplicates(['cluster_id'])['cluster_id']
-                    .tolist())
-
-# Exclude potential founders that are smaller than min founder size
-small_founders_to_exclude = []
-for i, c in enumerate(founder_ranking):
-    if muts_per_cluster[muts_per_cluster['cluster_id'] == c]['mut_count'].values[0] >= min_mutations_founder:
-        break
-    else:
-        small_founders_to_exclude.append(c)
-
-# Exclude small founders
+# Find the most likely founder and exclude too small potential founders
+founder, small_founders_to_exclude = find_founders(results_filt, muts_per_cluster, min_mutations_founder)
 results_filt = results_filt[~results_filt['cluster_id'].isin(small_founders_to_exclude)].copy()
 
+# Make sure all clusters in all samples have CCF < CCF(founder)
+# 1. Get the CCF of the founding clone in each sample
+founder_ccf_df = (results_filt[results_filt['cluster_id']==founder]
+                    .drop_duplicates(['sample_id','cluster_id'])
+                    [['sample_id','cellular_prevalence']])
+founder_ccf_dict = dict(zip(founder_ccf_df['sample_id'],
+                            founder_ccf_df['cellular_prevalence']))
+
+# 2. Adjust CCF downwards until it fits
+results_filt['cellular_prevalence'] = results_filt.apply(lambda x: 
+                                                                    adjust_ccf(x['cluster_id'],
+                                                                                 x['cellular_prevalence'],
+                                                                                 founder,
+                                                                                 founder_ccf_dict[x['sample_id']]), axis = 1)
+                                                                                       
 # Rename the clusters so that the founding clone is always the one called '1' (necessary for ClonEvol)
 rename_df = (results_filt.drop_duplicates(['sample_id','cluster_id'])
                 .groupby('cluster_id', as_index = False)
