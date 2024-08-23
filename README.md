@@ -16,9 +16,6 @@ Set the parameters required for running the pipeline in the config file `config/
     - `min_cluster_size`: Defines the minimum required number of mutations in a cluster to pass filtering. 
     - `min_founder_size`: Defines the minimum size of the founding clone as a fraction of the total number of mutations (e.g. 0.10)
 
-- ClonEvol parameters:
-    - `clonevol_model`: Sets the ClonEvol cancer initiation model. Options are `polyclonal` and `monoclonal`. 
-
 ## Running on Uppmax
 
 1. Load the conda module 
@@ -45,6 +42,6 @@ snakemake --cores 2 --sdm conda --conda-frontend conda
 ## To dos:
 
 - [ ] Add Pyclone-VI seed parameter to config
-- [ ] Sample_ids cannot include '-' for clonevols
-- [ ] Add Filtering for multi-sample analysis
+- [x] Sample_ids cannot include '-' for clonevols
+- [x] Add Filtering for multi-sample analysis
 
