@@ -4,9 +4,7 @@ results
 workflow/envs/snakemake
 workflow/envs/clonevol
 workflow/envs/pyclone-vi
-workflow/envs/R_packages
 logs
-workflow/envs
 config/T-3000.input.tsv
 config/T-3001.input.tsv
 config/T-3002.input.tsv
