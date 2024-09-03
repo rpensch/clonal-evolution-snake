@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--input', type=str)
 parser.add_argument('--min_cluster_size', type=int)
 parser.add_argument('--min_founder_size', type=float)
+parser.add_argument('--adjust_ccf', type=bool)
 parser.add_argument('--out', type=str)
 
 args = parser.parse_args()
@@ -42,7 +43,8 @@ founder_ccf_dict = dict(zip(founder_ccf_df['sample_id'],
                             founder_ccf_df['cellular_prevalence']))
 
 # 2. Adjust CCF downwards until it fits
-results_filt['cellular_prevalence'] = results_filt.apply(lambda x: 
+if args.adjust_ccf:
+    results_filt['cellular_prevalence'] = results_filt.apply(lambda x: 
                                                                     adjust_ccf(x['cluster_id'],
                                                                                  x['cellular_prevalence'],
                                                                                  founder,
