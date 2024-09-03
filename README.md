@@ -15,6 +15,7 @@ Set the parameters required for running the pipeline in the config file `config/
 - Pyclone-VI filtering parameters
     - `min_cluster_size`: Defines the minimum required number of mutations in a cluster to pass filtering. 
     - `min_founder_size`: Defines the minimum size of the founding clone as a fraction of the total number of mutations (e.g. 0.10)
+    - `min_cap`: Defines the minimum median cluster assignment probability (CAP) of a cluster to pass filtering (e.g. 0.5)
     - `adjust_ccf`: The cellular prevalence of sublcones can be ajusted downwards so that no subclone can have a higher cellular prevalence than the founder clone in any sample. Set to `True` to apply the adjustment or `False` to keep the original cellular prevalence values.
 
 ## Running on Uppmax

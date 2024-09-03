@@ -4,6 +4,7 @@ rule filter_pyclone:
     params:
         min_cluster_size = config["min_cluster_size"],
         min_founder_size = config["min_founder_size"],
+        min_cap = config["min_cap"],
         adjust_ccf = config["adjust_ccf"]
     output:
         "results/pyclone-vi_filtered/{sample}.pyclone-vi.filt.tsv"
@@ -18,6 +19,7 @@ rule filter_pyclone:
         --input {input}\
         --min_cluster_size {params.min_cluster_size}\
         --min_founder_size {params.min_founder_size}\
+        --min_cap {params.min_cap}\
         --adjust_ccf {params.adjust_ccf}\
         --out {output}\
         >> {log.stdout} 2> {log.stderr}

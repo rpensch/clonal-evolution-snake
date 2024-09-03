@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--input', type=str)
 parser.add_argument('--min_cluster_size', type=int)
 parser.add_argument('--min_founder_size', type=float)
+parser.add_argument('--min_cap', type=float)
 parser.add_argument('--adjust_ccf', type=bool)
 parser.add_argument('--out', type=str)
 
@@ -18,9 +19,15 @@ results = pd.read_csv(args.input, sep = '\t')
 # Count mutations per cluster
 muts_per_cluster = count_mutations_per_cluster(results)
 
-# Exclude clusters with less than min number of mutations
-exclude = muts_per_cluster[muts_per_cluster['mut_count']<args.min_cluster_size]['cluster_id'].tolist()
-results_filt = (results[~results['cluster_id'].isin(exclude)]).copy()
+# Get clusters with less than min number of mutations
+size_exclude = muts_per_cluster[muts_per_cluster['mut_count']<args.min_cluster_size]['cluster_id'].tolist()
+
+# Get clusters with a median cluster assignment probability (CAP) below min_cap
+caps = results.groupby('cluster_id', as_index = False)['cluster_assignment_prob'].median()
+cap_exclude = caps[caps['cluster_assignment_prob']<args.min_cap]['cluster_id'].tolist()
+
+# Exclude clusters with less than min number of mutations or CAP below min_cap
+results_filt = (results[~results['cluster_id'].isin(size_exclude+cap_exclude)]).copy()
 
 # Define the "founding clone" to be the cluster with the highest cellular prevalence (CCF) 
 # and more than min_founder_size mutations
@@ -66,7 +73,8 @@ results_filt['cluster_id'] = results_filt['cluster_id'].apply(lambda x: rename_d
 
 # Print summary to stdout / log
 print('Summary:')
-print(f'Excluded clusters (original ids): {", ".join([str(cluster) for cluster in exclude])}')
+print(f'Excluded clusters based on min_cluster_size (original ids): {", ".join([str(cluster) for cluster in size_exclude])}')
+print(f'Excluded clusters based on min_cap (original ids): {", ".join([str(cluster) for cluster in cap_exclude])}')
 print(f'Excluded founders (original ids): {", ".join([str(cluster) for cluster in small_founders_to_exclude])}')
 print(f'Remaining clusters renamed as follows:')
 print(f'original_id\tnew_id')

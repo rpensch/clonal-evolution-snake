@@ -5,4 +5,5 @@ pyclone_g: "100"
 pyclone_r: "10"
 min_cluster_size: 10
 min_founder_size: 0.10
+min_cap: 0.95
 adjust_ccf: False
