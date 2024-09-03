@@ -26,9 +26,9 @@ results_filt = (results[~results['cluster_id'].isin(exclude)]).copy()
 # and more than min_founder_size mutations
 # If multiple samples, set the founding clone to be the one with the highest CCF across all samples
 
-# How many total mutations in this indiviual, how many mutations should at least be in the founder?
-n_mutations = results.drop_duplicates('mutation_id').shape[0] # from total unfiltered
-min_mutations_founder = n_mutations * args.min_founder_size
+# How many total mutations in the sample with tha least mutations, how many mutations should at least be in the founder?
+n_mutations_smaller_sample = results[results['cellular_prevalence']!=0].value_counts('sample_id').min() # from total unfiltered
+min_mutations_founder = n_mutations_smaller_sample * args.min_founder_size
 
 # Find the most likely founder and exclude too small potential founders
 founder, small_founders_to_exclude = find_founders(results_filt, muts_per_cluster, min_mutations_founder)
