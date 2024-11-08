@@ -12,7 +12,7 @@ Set the parameters required for running the pipeline in the config file `config/
     - `pyclone-g`: Refers to the original Pyclone-VI parameter `-g` that sets the number of grid points used for approximating the posterior distribution. 
     - `pyclone-r`: Refers to the original Pyclone-VI parameter `-r` that sets the number of random restarts of variational inference.
 
-- Pyclone-VI filtering parameters
+- Filtering parameters
     - `min_cluster_size`: Defines the minimum required number of mutations in a cluster to pass filtering. 
     - `min_founder_size`: Defines the minimum size of the founding clone as a fraction of the total number of mutations (e.g. 0.10)
     - `min_cap`: Defines the minimum median cluster assignment probability (CAP) of a cluster to pass filtering (e.g. 0.5)
