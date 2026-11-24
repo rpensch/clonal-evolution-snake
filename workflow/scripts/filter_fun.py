@@ -42,6 +42,11 @@ def adjust_ccf(cluster, ccf, founder, founder_ccf):
         while adjusted >= founder_ccf:
             adjusted = ccf * adj_perc
             adj_perc -= 0.01
+            if adj_perc == 0.9:
+                warnings.warn(f"Cluster {cluster} CCF could not be adjusted below founder CCF. Reporting original CCF.")
+                return ccf
+        warnings.warn(f"Cluster {cluster} CCF was adjusted by {adj_perc} to be below founder CCF.")
         return adjusted
     else:
         return ccf
+
